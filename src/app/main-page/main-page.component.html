@@ -1,0 +1,23 @@
+<div class="page">
+  <div class="my-container main-container">
+    <div class="alien-img">
+      <img src="../../assets/pngs/alien-main.png" alt="alien picture" />
+    </div>
+    <div class="ufo-img">
+      <div
+        class="ufo-animation"
+        (mouseenter)="animateGlitter()"
+        (click)="navigateToPlay()"
+      >
+        <img
+          #ufo
+          src="../../assets/pngs/ufo-main.png"
+          alt="ufo picture"
+          class="ufo-hover-img"
+        />
+
+        <p #playUfo class="play-ufo glitter">PLAY</p>
+      </div>
+    </div>
+  </div>
+</div>

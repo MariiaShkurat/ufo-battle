@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersServiceService } from '../../shared/services/users-service.service';
+import { UsersServiceService } from '../../../shared/services/users-service.service';
 
 @Component({
   selector: 'app-scores',

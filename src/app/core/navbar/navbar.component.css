@@ -1,0 +1,48 @@
+.navbar {
+  background-color: #1c1c1c;
+  padding: 0 5rem;
+  box-shadow: 0 4px 15px -6px rgb(31 31 31);
+  --bs-navbar-padding-x: 0.5rem !important;
+  font-size: 20px;
+  justify-content: space-between;
+}
+
+.navbar ul > li {
+  padding: 0 12px;
+}
+
+#navbar > a {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+#navbar > a > p {
+  padding: 10px;
+}
+
+.active-link {
+  color: #488e8e;
+}
+
+.navbar-brand {
+  display: flex !important;
+  align-items: center;
+  flex-direction: row;
+}
+
+.navbar-collapse {
+  flex-direction: row-reverse;
+}
+
+.text-label {
+  margin-left: 10px;
+}
+
+.label {
+  width: 90px;
+}
+
+.fa-solid {
+  margin: 6px;
+}

@@ -1,0 +1,53 @@
+.main-container {
+  display: flex;
+  flex-direction: column-reverse;
+  flex: 1;
+  width: 40%;
+}
+
+.alien-img {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.alien-img img {
+  width: 300px;
+}
+
+.ufo-img {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ufo-img img {
+  width: 350px;
+}
+
+.ufo-animation {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.ufo-animation:hover {
+  transform: rotate(10deg);
+  cursor: pointer;
+}
+
+.play-ufo {
+  position: absolute;
+  top: 50px;
+  font-size: 40px;
+  font-weight: 900;
+  left: 120px;
+  color: #1c1c1c;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform-origin: center;
+  backface-visibility: hidden;
+  cursor: pointer;
+  animation: glitter 0.1s infinite;
+  opacity: 1;
+}
+
+.hide-play {
+  opacity: 0;
+}

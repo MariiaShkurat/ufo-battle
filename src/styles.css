@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  margin: 0px !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style: none;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.my-container {
+  width: 80%;
+  display: flex;
+  flex: 1;
+}
+
+.glitter {
+  -webkit-mask-image: linear-gradient(
+    45deg,
+    #000 25%,
+    rgba(0, 0, 0, 0.2) 50%,
+    #000 75%
+  );
+  mask-image: linear-gradient(
+    45deg,
+    #000 25%,
+    rgba(0, 0, 0, 0.2) 50%,
+    #000 75%
+  );
+  -webkit-mask-size: 800%;
+  mask-size: 800%;
+  -webkit-mask-position: 0;
+  mask-position: 0;
+}
+
+.pulse-div {
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 150px -30px,
+    rgba(0, 0, 0, 0.3) 0px 30px 90px -30px;
+  animation: pulse 3s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px 0 #b4e0e2;
+  }
+  100% {
+    box-shadow: 0 0 20px 20px #b4e0e2;
+  }
+}
+
+.header-div {
+  font-size: 20px;
+}
