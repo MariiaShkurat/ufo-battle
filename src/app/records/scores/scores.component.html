@@ -1,4 +1,22 @@
-<div *ngFor="let score of scoresList; let i = index">
-  {{ score.username }} got {{ score.punctuation }} on
-  {{ score.recordDate | date : "dd/MM/yy" }}
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">User</th>
+      <th scope="col">Points</th>
+      <th scope="col">UFOs</th>
+      <th scope="col">Secs.</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let score of scoresList; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ score.username }}</td>
+      <td>{{ score.punctuation }}</td>
+      <td>{{ score.ufos }}</td>
+      <td>{{ score.disposedTime }}</td>
+      <td>{{ score.recordDate | date : "dd/MM/yyyy, HH:mm" }}</td>
+    </tr>
+  </tbody>
+</table>

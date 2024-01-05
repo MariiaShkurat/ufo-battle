@@ -1,0 +1,11 @@
+.records-container {
+  justify-content: center;
+  align-items: center;
+}
+
+.records-container-table {
+  background-color: #ffffff;
+  padding: 40px 70px;
+  border-radius: 10px;
+  margin: 70px;
+}

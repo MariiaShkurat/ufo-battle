@@ -17,6 +17,7 @@ import { PlayComponent } from './play/play.component';
 import { RegisterComponent } from './register/register.component';
 import { RecordsComponent } from './records/records.component';
 import { AccessComponent } from './access/access.component';
+import { CardComponent } from './core/card/card.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AccessComponent } from './access/access.component';
     RegisterComponent,
     RecordsComponent,
     AccessComponent,
+    CardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [UsersServiceService, LoginService, TokenmngService],

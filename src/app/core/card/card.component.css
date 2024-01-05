@@ -1,0 +1,19 @@
+.pulse-div {
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 150px -30px,
+    rgba(0, 0, 0, 0.3) 0px 30px 90px -30px;
+  animation: pulse 3s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px 0 #b4e0e2;
+  }
+  100% {
+    box-shadow: 0 0 20px 20px #b4e0e2;
+  }
+}
+
+.header-div {
+  font-size: 20px;
+}
