@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoginService } from '../../../shared/services/login.service';
 import { TokenmngService } from '../../../shared/services/tokenmng.service';
 import { StatusMessageService } from '../../../shared/services/status-message.service';
+import { User } from '../../../shared/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -9,40 +10,49 @@ import { StatusMessageService } from '../../../shared/services/status-message.se
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
-  mytoken: string = '';
-  errorMessage: string = '';
+  currUser: User = { username: '', password: '' };
 
   constructor(
-    private user: LoginService,
-    private tknmg: TokenmngService,
+    private loginService: LoginService,
+    private tokenMngService: TokenmngService,
     private statusMessageService: StatusMessageService
   ) {}
 
   doLogin(): void {
-    if (!this.username || !this.password) {
+    if (!this.currUser.username || !this.currUser.password) {
       this.statusMessageService.changeMessage(
         'Please enter both username and password.',
         'error'
       );
       return;
     }
-    this.user.login(this.username, this.password).subscribe({
+    this.loginService.login(this.currUser).subscribe({
       next: (response) => {
-        this.mytoken = response.headers.get('Authorization');
-        this.tknmg.saveToken(this.mytoken);
-        this.statusMessageService.changeMessage('Login successful!', 'success');
-        this.username = '';
-        this.password = '';
+        const token = response.headers.get('Authorization');
+        if (token) {
+          this.currUser.token = token;
+          this.tokenMngService.saveUserData(this.currUser);
+          this.statusMessageService.changeMessage(
+            'Login successful!',
+            'success'
+          );
+        } else {
+          this.statusMessageService.changeMessage(
+            'Token not found in the response.',
+            'error'
+          );
+        }
+
+        this.currUser.username = '';
+        this.currUser.password = '';
       },
       error: (err) => {
         this.statusMessageService.changeMessage(
           err.error.message || 'Login failed. Please try again.',
           'error'
         );
-        this.username = '';
-        this.password = '';
+        this.currUser.username = '';
+        this.currUser.password = '';
       },
     });
   }

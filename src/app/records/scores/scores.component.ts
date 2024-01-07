@@ -22,7 +22,7 @@ export class ScoresComponent {
         this.tokenMngService.refreshTokenTimeout();
       },
       error: (error) => {
-        console.log('There was an error');
+        console.log(error.message);
       },
     });
   }

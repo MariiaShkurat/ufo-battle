@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { TokenmngService } from '../../shared/services/tokenmng.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-records',
@@ -6,4 +8,12 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrl: './records.component.css',
   encapsulation: ViewEncapsulation.None,
 })
-export class RecordsComponent {}
+export class RecordsComponent implements OnInit {
+  isLoggedIn$!: Observable<boolean>;
+
+  constructor(private tokenmngService: TokenmngService) {}
+
+  ngOnInit(): void {
+    this.isLoggedIn$ = this.tokenmngService.isLoggedIn;
+  }
+}

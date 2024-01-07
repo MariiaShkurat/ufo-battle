@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { config } from '../models/config';
 
 @Injectable({
@@ -11,5 +11,12 @@ export class UsersServiceService {
 
   getRecords(): Observable<any> {
     return this.http.get(`${config.base_url}/records`);
+  }
+
+  getRecordsByUsername(username: string, token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `${token}`,
+    });
+    return this.http.get(`${config.base_url}/records/${username}`, { headers });
   }
 }

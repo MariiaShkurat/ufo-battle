@@ -1,21 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TokenmngService {
-  private isLoggedInSource = new BehaviorSubject<boolean>(false);
+  private isLoggedInSource = new BehaviorSubject<boolean>(
+    this.checkInitialLoginStatus()
+  );
   isLoggedIn = this.isLoggedInSource.asObservable();
+
   private tokenExpirationTimer: any;
 
   constructor(private router: Router) {}
 
-  saveToken(token: string): void {
-    sessionStorage.setItem('token', token);
+  private checkInitialLoginStatus(): boolean {
+    const userDataJson = sessionStorage.getItem('userData');
+    const userData = userDataJson ? JSON.parse(userDataJson) : null;
+    return !!userData && !!userData.token;
+  }
+
+  saveUserData(userData: User): void {
+    sessionStorage.setItem('userData', JSON.stringify(userData));
     this.isLoggedInSource.next(true);
     this.refreshTokenTimeout();
+  }
+
+  getUserData(): User | null {
+    const userDataJson = sessionStorage.getItem('userData');
+    return userDataJson ? JSON.parse(userDataJson) : null;
   }
 
   refreshTokenTimeout(): void {
@@ -28,7 +43,7 @@ export class TokenmngService {
   }
 
   clearToken(): void {
-    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userData');
     this.isLoggedInSource.next(false);
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);

@@ -1,0 +1,17 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" *ngFor="let header of headers">{{ header }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let score of scores; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ score.username }}</td>
+      <td>{{ score.punctuation }}</td>
+      <td>{{ score.ufos }}</td>
+      <td>{{ score.disposedTime }}</td>
+      <td>{{ score.recordDate | date : "dd/MM/yyyy, HH:mm" }}</td>
+    </tr>
+  </tbody>
+</table>
