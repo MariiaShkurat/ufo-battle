@@ -1,1 +1,68 @@
-<p>register works!</p>
+<div class="page">
+  <div class="my-container register-container">
+    <app-card header="Register" customClass="register">
+      <form class="gy-2 gx-3 align-items-center" (ngSubmit)="registerUser()">
+        <div class="col-auto" style="margin: 10px 0 0 0">
+          <label class="visually-hidden" for="userNameReg">Name</label>
+          <input
+            [(ngModel)]="user.username"
+            (blur)="checkUsername()"
+            type="text"
+            class="form-control"
+            id="userNameReg"
+            placeholder="User name"
+            name="username"
+            required
+          />
+        </div>
+        <div class="col-auto">
+          <label class="visually-hidden" for="userEmail">Email</label>
+          <div class="input-group">
+            <div class="input-group-text"><i class="fa-regular fa-at"></i></div>
+            <input
+              [(ngModel)]="user.email"
+              [readonly]="!isUsernameAvailable"
+              type="email"
+              class="form-control"
+              id="userEmail"
+              placeholder="Email"
+              name="email"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-auto">
+          <label class="visually-hidden" for="userPasswordReg">Password</label>
+          <input
+            [(ngModel)]="user.password"
+            [readonly]="!isUsernameAvailable"
+            type="password"
+            class="form-control"
+            id="userPasswordReg"
+            placeholder="Password"
+            name="password"
+            required
+          />
+        </div>
+
+        <div class="col-auto">
+          <label class="visually-hidden" for="repPasswordReg"
+            >PasswordRep</label
+          >
+          <input
+            [(ngModel)]="confirmPassword"
+            [readonly]="!isUsernameAvailable"
+            type="password"
+            class="form-control"
+            id="repPasswordReg"
+            placeholder="Repeat password"
+            name="password"
+            required
+          />
+        </div>
+        <app-button></app-button>
+      </form>
+    </app-card>
+    <app-status-message></app-status-message>
+  </div>
+</div>

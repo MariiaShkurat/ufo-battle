@@ -1,0 +1,13 @@
+.register-container {
+  justify-content: center;
+  align-items: center;
+}
+
+.register {
+  padding: 40px 70px;
+  border-radius: 10px;
+}
+
+.col-auto {
+  margin: 20px 0 0 0;
+}
