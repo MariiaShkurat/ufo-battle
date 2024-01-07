@@ -1,0 +1,9 @@
+.login-container {
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  padding: 40px 70px;
+  border-radius: 10px;
+}

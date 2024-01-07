@@ -18,6 +18,8 @@ import { RegisterComponent } from './register/register.component';
 import { RecordsComponent } from './records/records.component';
 import { AccessComponent } from './access/access.component';
 import { CardComponent } from './core/card/card.component';
+import { ButtonComponent } from './core/button/button.component';
+import { StatusMessageComponent } from './core/status-message/status-message.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { CardComponent } from './core/card/card.component';
     RecordsComponent,
     AccessComponent,
     CardComponent,
+    ButtonComponent,
+    StatusMessageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [UsersServiceService, LoginService, TokenmngService],

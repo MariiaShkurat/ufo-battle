@@ -36,9 +36,14 @@
         <i class="fa-solid fa-user"></i> Register
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="!(isLoggedIn$ | async)">
       <a routerLink="/access" routerLinkActive="active" class="nav-link">
         <i class="fa-solid fa-right-to-bracket"></i>Login
+      </a>
+    </li>
+    <li class="nav-item" *ngIf="isLoggedIn$ | async">
+      <a (click)="logout()" class="nav-link" style="cursor: pointer">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
       </a>
     </li>
   </ul>

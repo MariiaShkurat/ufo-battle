@@ -1,56 +1,33 @@
-<section class="container" id="body_form" STYLE="width:50%; height:30%">
-  <div class="jumbotron" style="margin: 10px; padding: 5px">
-    <fieldset>
-      <legend>User Login</legend>
-      <form
-        class="form-horizontal"
-        role="form"
-        name="registration"
-        id="registration"
-        method="post"
-      >
-        <div class="form-group form-group-md">
-          <label for="username" class="col-md-3 control-label">User id:</label>
-          <div class="col-md-8">
-            <input
-              [(ngModel)]="username"
-              type="text"
-              class="form-control"
-              name="username"
-              id="username"
-              placeholder="User identifier"
-              required
-            />
-          </div>
-        </div>
-        <div class="form-group form-group-md">
-          <label for="pwd1" class="col-md-3 control-label">Password:</label>
-          <div class="col-md-8">
-            <input
-              [(ngModel)]="password"
-              type="password"
-              class="form-control"
-              id="pwd1"
-              name="pwd1"
-              #pwd1
-              required
-              placeholder="password"
-            />
-          </div>
-        </div>
-
-        <div class="form-group form-group-md">
-          <div class="col-md-2 col-md-push-6">
-            <button
-              type="button"
-              class="btn btn-primary btn-md"
-              (click)="doLogin()"
-            >
-              Login
-            </button>
-          </div>
-        </div>
-      </form>
-    </fieldset>
+<form
+  class="gy-2 gx-3 align-items-center"
+  id="loginForm"
+  (ngSubmit)="doLogin()"
+>
+  <div class="col-auto">
+    <label class="visually-hidden" for="username">Name</label>
+    <input
+      [(ngModel)]="username"
+      type="text"
+      class="form-control"
+      id="username"
+      name="username"
+      placeholder="User name"
+      required
+    />
   </div>
-</section>
+
+  <div class="col-auto">
+    <label class="visually-hidden" for="password">Password</label>
+    <input
+      [(ngModel)]="password"
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      placeholder="Password"
+      required
+    />
+  </div>
+
+  <app-button></app-button>
+</form>
