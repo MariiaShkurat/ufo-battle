@@ -22,7 +22,8 @@ export class TokenmngService {
     return !!userData && !!userData.token;
   }
 
-  saveUserData(userData: User): void {
+  saveUserData({ username, token }: User): void {
+    const userData = { username, token };
     sessionStorage.setItem('userData', JSON.stringify(userData));
     this.isLoggedInSource.next(true);
     this.refreshTokenTimeout();
