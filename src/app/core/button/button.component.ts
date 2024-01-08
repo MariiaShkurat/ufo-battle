@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, Input } from '@angular/core';
 import { AnimationsService } from '../../../shared/services/animations.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { AnimationsService } from '../../../shared/services/animations.service';
   styleUrl: './button.component.css',
 })
 export class ButtonComponent {
+  @Input() btnText?: string;
   @ViewChild('buttonElement') buttonElement!: ElementRef;
 
   constructor(private animationsService: AnimationsService) {}

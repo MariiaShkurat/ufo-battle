@@ -1,0 +1,16 @@
+#missile {
+  position: absolute;
+  bottom: 10px;
+  left: 300px;
+  height: 70px;
+  z-index: 10;
+  width: 40px;
+}
+
+.setOfUfos {
+  position: absolute;
+  left: 0px;
+  bottom: 550px;
+  width: 60px;
+  transition: 0.1s linear;
+}

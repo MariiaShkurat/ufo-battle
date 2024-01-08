@@ -22,6 +22,7 @@ import { ButtonComponent } from './core/button/button.component';
 import { StatusMessageComponent } from './core/status-message/status-message.component';
 import { UserScoresComponent } from './records/user-scores/user-scores.component';
 import { ScoresTableComponent } from './core/scores-table/scores-table.component';
+import { GamePanelComponent } from './play/game-panel/game-panel.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ScoresTableComponent } from './core/scores-table/scores-table.component
     StatusMessageComponent,
     UserScoresComponent,
     ScoresTableComponent,
+    GamePanelComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [UsersServiceService, LoginService, TokenmngService],
