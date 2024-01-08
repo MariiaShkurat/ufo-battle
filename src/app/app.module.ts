@@ -23,6 +23,8 @@ import { StatusMessageComponent } from './core/status-message/status-message.com
 import { UserScoresComponent } from './records/user-scores/user-scores.component';
 import { ScoresTableComponent } from './core/scores-table/scores-table.component';
 import { GamePanelComponent } from './play/game-panel/game-panel.component';
+import { MissileComponent } from './play/missile/missile.component';
+import { UfoComponent } from './play/ufo/ufo.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { GamePanelComponent } from './play/game-panel/game-panel.component';
     UserScoresComponent,
     ScoresTableComponent,
     GamePanelComponent,
+    MissileComponent,
+    UfoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [UsersServiceService, LoginService, TokenmngService],

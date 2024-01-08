@@ -1,8 +1,5 @@
 <div class="page">
-  <img
-    id="missile"
-    src="../../assets/pngs/misil.png"
-    style="left: 300px; bottom: 10px; height: 70px; width: 40px; z-index: 10"
-  />
-  <app-game-panel></app-game-panel>
+  <!-- <app-missile [position]="missilePosition"></app-missile> -->
+  <app-ufo *ngFor="let ufo of ufos" [ufo]="ufo"></app-ufo>
+  <!-- <app-game-panel [score]="score" [timeLeft]="timeLeft"></app-game-panel> -->
 </div>
