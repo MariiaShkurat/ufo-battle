@@ -58,3 +58,7 @@ ul {
   -webkit-mask-position: 0;
   mask-position: 0;
 }
+
+.hide-footer app-footer {
+  display: none;
+}
