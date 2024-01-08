@@ -1,1 +1,46 @@
-<p>preferences works!</p>
+<div class="page">
+  <div class="my-container preferences-container">
+    <app-card header="Preferences" customClass="preferences-container-form"
+      ><form class="gy-2 gx-3 align-items-center" (ngSubmit)="onSubmit()">
+        <div class="col-auto">
+          <label for="inputUfosNumber">Quantity of UFOs:</label>
+          <input
+            [(ngModel)]="preferences.ufosNumber"
+            name="ufosNumber"
+            type="number"
+            class="form-control"
+            placeholder="Put the number of UFOs (1-5)"
+            min="1"
+            step="1"
+            max="5"
+          />
+        </div>
+        <div class="col-auto">
+          <label for="inputTime">Time (seconds):</label>
+          <select
+            [(ngModel)]="preferences.time"
+            name="time"
+            class="form-select"
+          >
+            <option selected>60</option>
+            <option value="120">120</option>
+            <option value="180">180</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <div class="form-check">
+            <input
+              [(ngModel)]="preferences.rememberPref"
+              name="rememberPref"
+              class="form-check-input"
+              type="checkbox"
+            />
+            <label class="form-check-label" for="rememberPref">
+              Remember my preferences for the future
+            </label>
+          </div>
+        </div>
+        <app-button></app-button></form
+    ></app-card>
+  </div>
+</div>
