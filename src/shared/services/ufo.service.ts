@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UFO } from '../models/ufo.model';
+import { Missile } from '../models/missile.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,6 +26,9 @@ export class UfoService {
         imageUrl: '../../assets/pngs/ufo.png',
         class: 'setOfUfos',
         horStep: 5,
+        isExploded: false,
+        width: 60,
+        height: 60,
       };
 
       this.ufos.push(ufo);
@@ -41,6 +45,46 @@ export class UfoService {
         ufo.horStep = -ufo.horStep;
       }
     });
+  }
+
+  getUfoRect(ufo: UFO): {
+    left: number;
+    right: number;
+    top: number;
+    bottom: number;
+  } {
+    return {
+      left: ufo.position.x,
+      right: ufo.position.x + ufo.width,
+      top: ufo.position.y,
+      bottom: ufo.position.y + ufo.height,
+    };
+  }
+
+  hitCheck(missile: Missile): UFO | null {
+    for (const ufo of this.ufos) {
+      const ufoRect = this.getUfoRect(ufo);
+      if (
+        missile.position.x < ufoRect.right &&
+        missile.position.x + missile.width > ufoRect.left &&
+        missile.position.y < ufoRect.bottom &&
+        missile.position.y + missile.height > ufoRect.top &&
+        !ufo.isExploded
+      ) {
+        this.explodeUfo(ufo);
+        return ufo;
+      }
+    }
+    return null;
+  }
+
+  explodeUfo(ufo: UFO): void {
+    ufo.imageUrl = '../../assets/pngs/explosion.gif'; // Путь к изображению взрыва
+    ufo.isExploded = true;
+    setTimeout(() => {
+      ufo.imageUrl = '../../assets/pngs/ufo.png'; // Путь к оригинальному изображению UFO
+      ufo.isExploded = false;
+    }, 1000); // Время анимации взрыва
   }
 
   clearUFOs(): void {

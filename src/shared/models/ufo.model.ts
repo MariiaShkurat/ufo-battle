@@ -6,4 +6,7 @@ export interface UFO {
   imageUrl: string;
   class: string;
   horStep: number;
+  isExploded: boolean;
+  width: number;
+  height: number;
 }

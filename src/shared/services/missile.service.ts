@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Missile } from '../models/missile.model';
+import { UfoService } from './ufo.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +11,12 @@ export class MissileService {
     velocity: 5,
     isLaunched: false,
     imageUrl: '../../assets/pngs/misil.png',
+    width: 40,
+    height: 70,
   };
   private launchIntervalId: any;
 
-  constructor() {}
+  constructor(private ufoService: UfoService) {}
 
   moveRight(): void {
     const rightLimit = window.innerWidth - 40;
@@ -34,16 +37,24 @@ export class MissileService {
       this.launchIntervalId = setInterval(() => {
         this.missile.position.y += this.missile.velocity;
 
+        const hitUfo = this.ufoService.hitCheck(this.missile);
+        if (hitUfo) {
+          this.resetMissile();
+        }
+
         if (this.missile.position.y > window.innerHeight) {
           this.resetMissile();
         }
       }, 10);
     }
   }
-
   resetMissile(): void {
     clearInterval(this.launchIntervalId);
     this.missile.isLaunched = false;
-    this.missile.position.y = 10;
+    this.missile.position.y = 0;
+  }
+
+  getMessile(): any {
+    return this.missile;
   }
 }

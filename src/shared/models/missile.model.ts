@@ -6,4 +6,6 @@ export interface Missile {
   };
   velocity: number;
   isLaunched: boolean;
+  width: number;
+  height: number;
 }

@@ -6,6 +6,7 @@ import { UfoService } from './ufo.service';
 })
 export class GameStateService {
   private gameIsRunning = false;
+  private score = 0;
 
   constructor(private ufoService: UfoService) {}
 
@@ -20,5 +21,13 @@ export class GameStateService {
 
   isGameRunning(): boolean {
     return this.gameIsRunning;
+  }
+
+  addScore(points: number): void {
+    this.score += points;
+  }
+
+  getScore(): number {
+    return this.score;
   }
 }
