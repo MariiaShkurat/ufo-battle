@@ -1,7 +1,20 @@
-<app-card customClass="points-timing"
-  ><div style="margin: 5px 0px">Score: <span id="points"> 0 </span></div>
-  <div id="timer" style="margin: 5px 0px">
-    Time: <span id="countdown">60 </span> secs
+<app-card customClass="points-timing">
+  <div style="margin: 5px 0px">
+    Score: <span id="points">{{ score }}</span>
   </div>
-  <app-button btnText="Start Again"></app-button
-></app-card>
+  <div id="timer" style="margin: 5px 0px">
+    Time: <span id="countdown">{{ timeLeft }}</span> secs
+  </div>
+  <app-button
+    btnText="Start Again"
+    (click)="startNewGame()"
+    *ngIf="!gameIsRunning"
+  ></app-button>
+  <app-button
+    btnText="Save My Records"
+    *ngIf="!gameIsRunning && (isLoggedIn$ | async)"
+    (click)="onSaveRecords()"
+    [isDisabled]="isButtonDisabled"
+  ></app-button>
+</app-card>
+<app-status-message></app-status-message>

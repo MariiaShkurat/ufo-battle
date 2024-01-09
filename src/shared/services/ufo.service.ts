@@ -72,6 +72,7 @@ export class UfoService {
         !ufo.isExploded
       ) {
         this.explodeUfo(ufo);
+
         return ufo;
       }
     }
@@ -79,12 +80,11 @@ export class UfoService {
   }
 
   explodeUfo(ufo: UFO): void {
-    ufo.imageUrl = '../../assets/pngs/explosion.gif'; // Путь к изображению взрыва
-    ufo.isExploded = true;
+    ufo.imageUrl = '../../assets/pngs/explosion.gif';
     setTimeout(() => {
-      ufo.imageUrl = '../../assets/pngs/ufo.png'; // Путь к оригинальному изображению UFO
+      ufo.imageUrl = '../../assets/pngs/ufo.png';
       ufo.isExploded = false;
-    }, 1000); // Время анимации взрыва
+    }, 1000);
   }
 
   clearUFOs(): void {

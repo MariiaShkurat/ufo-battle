@@ -8,6 +8,8 @@ import { AnimationsService } from '../../../shared/services/animations.service';
 })
 export class ButtonComponent {
   @Input() btnText?: string;
+  @Input() isDisabled: boolean = false;
+
   @ViewChild('buttonElement') buttonElement!: ElementRef;
 
   constructor(private animationsService: AnimationsService) {}

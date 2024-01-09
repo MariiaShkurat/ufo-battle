@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Missile } from '../models/missile.model';
 import { UfoService } from './ufo.service';
+import { GameStateService } from './game-state.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,10 @@ export class MissileService {
   };
   private launchIntervalId: any;
 
-  constructor(private ufoService: UfoService) {}
+  constructor(
+    private ufoService: UfoService,
+    private GameStateService: GameStateService
+  ) {}
 
   moveRight(): void {
     const rightLimit = window.innerWidth - 40;
@@ -39,11 +43,13 @@ export class MissileService {
 
         const hitUfo = this.ufoService.hitCheck(this.missile);
         if (hitUfo) {
+          this.GameStateService.addScore(100);
           this.resetMissile();
         }
 
         if (this.missile.position.y > window.innerHeight) {
           this.resetMissile();
+          this.GameStateService.subtractScore(25);
         }
       }, 10);
     }

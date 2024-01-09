@@ -9,6 +9,7 @@ import { PreferencesService } from '../../shared/services/preferences.service';
 import { GameStateService } from '../../shared/services/game-state.service';
 import { UfoService } from '../../shared/services/ufo.service';
 import { MissileService } from '../../shared/services/missile.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-play',
@@ -18,7 +19,9 @@ import { MissileService } from '../../shared/services/missile.service';
 export class PlayComponent implements OnInit {
   ufos = this.ufoService.ufos;
   missile = this.missileService.missile;
+  gameIsRunning: boolean = false;
   private moveUfosInterval: any;
+  private gameRunningSubscription?: Subscription;
 
   constructor(
     private renderer: Renderer2,
@@ -29,10 +32,16 @@ export class PlayComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.renderer.addClass(document.body, 'hide-footer');
-    this.gameStateService.startGame();
+    this.gameRunningSubscription = this.gameStateService
+      .getGameRunningStatus()
+      .subscribe((isRunning) => {
+        this.gameIsRunning = isRunning;
+      });
 
+    this.renderer.addClass(document.body, 'hide-footer');
     const preferences = this.preferencesService.getPreferences();
+    this.gameStateService.startGame(preferences.time);
+
     const gameArea = {
       width: 800,
       height: 600,
@@ -43,7 +52,7 @@ export class PlayComponent implements OnInit {
 
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent): void {
-    if (this.gameStateService.isGameRunning()) {
+    if (this.gameIsRunning) {
       if (event.key === 'ArrowRight') {
         this.missileService.moveRight();
       } else if (event.key === 'ArrowLeft') {
