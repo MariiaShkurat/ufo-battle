@@ -1,3 +1,7 @@
 .col-auto {
   margin: 10px 0;
 }
+
+#password {
+  margin-bottom: 30px;
+}

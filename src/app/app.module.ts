@@ -25,6 +25,13 @@ import { ScoresTableComponent } from './core/scores-table/scores-table.component
 import { GamePanelComponent } from './play/game-panel/game-panel.component';
 import { MissileComponent } from './play/missile/missile.component';
 import { UfoComponent } from './play/ufo/ufo.component';
+import { AnimationsService } from '../shared/services/animations.service';
+import { GameStateService } from '../shared/services/game-state.service';
+import { MissileService } from '../shared/services/missile.service';
+import { PreferencesService } from '../shared/services/preferences.service';
+import { RegisterService } from '../shared/services/register.service';
+import { StatusMessageService } from '../shared/services/status-message.service';
+import { UfoService } from '../shared/services/ufo.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +56,18 @@ import { UfoComponent } from './play/ufo/ufo.component';
     UfoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [UsersServiceService, LoginService, TokenmngService],
+  providers: [
+    UsersServiceService,
+    LoginService,
+    TokenmngService,
+    AnimationsService,
+    GameStateService,
+    MissileService,
+    PreferencesService,
+    RegisterService,
+    StatusMessageService,
+    UfoService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

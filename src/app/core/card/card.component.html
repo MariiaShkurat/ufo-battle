@@ -1,4 +1,4 @@
 <div [ngClass]="['pulse-div', customClass]">
-  <p class="header-div">{{ header }}</p>
+  <p class="header-div" *ngIf="header">{{ header }}</p>
   <ng-content></ng-content>
 </div>

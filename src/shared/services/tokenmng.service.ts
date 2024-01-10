@@ -46,6 +46,7 @@ export class TokenmngService {
   clearToken(): void {
     sessionStorage.removeItem('userData');
     this.isLoggedInSource.next(false);
+
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
       this.tokenExpirationTimer = null;

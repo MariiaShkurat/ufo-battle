@@ -2,14 +2,17 @@
   <div style="margin: 5px 0px">
     Score: <span id="points">{{ score }}</span>
   </div>
-  <div id="timer" style="margin: 5px 0px">
+  <div id="timer" [ngClass]="{ margin: !gameIsRunning }">
     Time: <span id="countdown">{{ timeLeft }}</span> secs
   </div>
-  <app-button
-    btnText="Start Again"
-    (click)="startNewGame()"
-    *ngIf="!gameIsRunning"
-  ></app-button>
+  <div class="margin">
+    <app-button
+      btnText="Start Again"
+      (click)="startNewGame()"
+      *ngIf="!gameIsRunning"
+    ></app-button>
+  </div>
+
   <app-button
     btnText="Save My Records"
     *ngIf="!gameIsRunning && (isLoggedIn$ | async)"

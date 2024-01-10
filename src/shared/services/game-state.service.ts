@@ -20,6 +20,7 @@ export class GameStateService {
   startGame(duration: number): void {
     this.gameIsRunning.next(true);
     this.timeLeft.next(duration);
+    this.score.next(0);
     this.gameTimer = setInterval(() => {
       const currentTime = this.timeLeft.value;
       if (currentTime <= 0) {
