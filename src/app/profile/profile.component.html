@@ -1,0 +1,41 @@
+<div class="page">
+  <div class="my-container profile-container">
+    <app-card
+      header="Password change: {{ this.passwordChangeData.username }}"
+      customClass="profile"
+    >
+      <form class="gy-2 gx-3 align-items-center" (ngSubmit)="changePassword()">
+        <div class="col-auto" style="margin: 10px 0 0 0">
+          <label class="visually-hidden" for="oldPassword">Password</label>
+          <input
+            [(ngModel)]="passwordChangeData.newPassword"
+            type="password"
+            class="form-control"
+            id="newPassword"
+            placeholder="Password"
+            name="newPassword"
+            required
+          />
+        </div>
+        <div class="col-auto">
+          <label class="visually-hidden" for="repNewPass"
+            >Repeat new password</label
+          >
+          <div class="input-group">
+            <input
+              [(ngModel)]="confirmNewPassword"
+              type="password"
+              class="form-control"
+              id="repNewPass"
+              placeholder="Repeat new password"
+              name="repNewPass"
+              required
+            />
+          </div>
+        </div>
+        <app-button btnText="Submit"></app-button>
+      </form>
+    </app-card>
+    <app-status-message></app-status-message>
+  </div>
+</div>

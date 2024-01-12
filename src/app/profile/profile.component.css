@@ -1,0 +1,17 @@
+.profile-container {
+  justify-content: center;
+  align-items: center;
+}
+
+.profile {
+  padding: 40px 70px;
+  border-radius: 10px;
+}
+
+.col-auto {
+  margin: 20px 0 0 0;
+}
+
+#repNewPass {
+  margin-bottom: 10px;
+}

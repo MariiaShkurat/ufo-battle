@@ -32,6 +32,7 @@ import { PreferencesService } from '../shared/services/preferences.service';
 import { RegisterService } from '../shared/services/register.service';
 import { StatusMessageService } from '../shared/services/status-message.service';
 import { UfoService } from '../shared/services/ufo.service';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { UfoService } from '../shared/services/ufo.service';
     GamePanelComponent,
     MissileComponent,
     UfoComponent,
+    ProfileComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [

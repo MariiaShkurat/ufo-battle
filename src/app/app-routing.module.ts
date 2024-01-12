@@ -6,6 +6,7 @@ import { PlayComponent } from './play/play.component';
 import { RegisterComponent } from './register/register.component';
 import { AccessComponent } from './access/access.component';
 import { RecordsComponent } from './records/records.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'records', component: RecordsComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'access', component: AccessComponent },
+  { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({

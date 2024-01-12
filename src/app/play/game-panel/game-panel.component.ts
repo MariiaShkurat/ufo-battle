@@ -4,10 +4,8 @@ import { Subscription, Observable } from 'rxjs';
 import { TokenmngService } from '../../../shared/services/tokenmng.service';
 import { RecordData } from '../../../shared/models/record-data.model';
 import { UsersServiceService } from '../../../shared/services/users-service.service';
-UsersServiceService;
 import { PreferencesService } from '../../../shared/services/preferences.service';
 import { StatusMessageService } from '../../../shared/services/status-message.service';
-StatusMessageService;
 
 @Component({
   selector: 'app-game-panel',
